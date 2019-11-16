@@ -16,5 +16,5 @@ desenvolvido com uso da plaforma Godot 3.1, jogável em celulares Android, poden
 * [ Godot 3.1 ](https://github.com/godotengine/godot/releases/tag/3.1-stable)
 * [ Godot - FireBase ](https://github.com/Dhciolfi/GodotFireBase)
 * [ Godot - SQL ](https://github.com/FrogSquare/GodotSQL)
-* [ Compilação de Mdulos para Android ](https://docs.godotengine.org/en/3.1/development/compiling/compiling_for_android.html)
+* [ Compilação de Módulos para Android ](https://docs.godotengine.org/en/3.1/development/compiling/compiling_for_android.html)
  
