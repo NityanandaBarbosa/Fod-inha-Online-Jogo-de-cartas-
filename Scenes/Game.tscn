@@ -1,0 +1,341 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Script/Game.gd" type="Script" id=1]
+[ext_resource path="res://Assets/background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/back copiar.png" type="Texture" id=3]
+[ext_resource path="res://Script/Manilha.gd" type="Script" id=4]
+[ext_resource path="res://Script/Stack.gd" type="Script" id=5]
+[ext_resource path="res://Assets/player.png" type="Texture" id=6]
+[ext_resource path="res://Assets/font.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Script/Hand.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Soulcraft.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 9 )
+
+[node name="Game" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Back" type="TextureRect" parent="."]
+margin_left = 4.69937
+margin_top = -2.53152
+margin_right = 1287.7
+margin_bottom = 717.468
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Manilha" type="TextureRect" parent="."]
+margin_left = 482.264
+margin_top = 285.354
+margin_right = 626.264
+margin_bottom = 487.354
+texture = ExtResource( 3 )
+expand = true
+script = ExtResource( 4 )
+
+[node name="Stack" type="TextureRect" parent="."]
+margin_left = 645.789
+margin_top = 285.823
+margin_right = 789.789
+margin_bottom = 487.823
+mouse_filter = 0
+texture = ExtResource( 3 )
+expand = true
+script = ExtResource( 5 )
+
+[node name="Player0" type="TextureRect" parent="."]
+editor/display_folded = true
+margin_left = 958.186
+margin_top = 566.905
+margin_right = 1098.19
+margin_bottom = 710.905
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Player0"]
+margin_left = 8.0
+margin_top = -58.0
+margin_right = 146.0
+margin_bottom = -9.0
+custom_fonts/font = SubResource( 1 )
+text = "Me"
+align = 1
+
+[node name="Player1" type="TextureRect" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 1123.8
+margin_top = 268.708
+margin_right = 1263.8
+margin_bottom = 412.708
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Player1"]
+margin_left = -22.7076
+margin_top = -47.6015
+margin_right = 161.292
+margin_bottom = 1.39847
+custom_fonts/font = SubResource( 1 )
+text = "Players 2"
+align = 1
+
+[node name="Number" type="Label" parent="Player1"]
+margin_left = -135.0
+margin_top = -6.84149
+margin_right = 27.0
+margin_bottom = 30.1585
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+
+[node name="Card" type="TextureRect" parent="Player1"]
+margin_left = -80.317
+margin_top = 35.0492
+margin_right = 6.68298
+margin_bottom = 122.049
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Player2" type="TextureRect" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 964.06
+margin_top = 4.0415
+margin_right = 1104.06
+margin_bottom = 148.042
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Player2"]
+margin_left = -201.925
+margin_top = 40.0593
+margin_right = -17.9254
+margin_bottom = 89.0593
+custom_fonts/font = SubResource( 1 )
+text = "Players 3
+"
+align = 1
+
+[node name="Number" type="Label" parent="Player2"]
+margin_left = 93.8061
+margin_top = -5.50858
+margin_right = 255.806
+margin_bottom = 31.4914
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+
+[node name="Card" type="TextureRect" parent="Player2"]
+margin_left = 148.489
+margin_top = 36.3821
+margin_right = 235.489
+margin_bottom = 123.382
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Player3" type="TextureRect" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 234.185
+margin_top = 2.09348
+margin_right = 374.185
+margin_bottom = 146.093
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Player3"]
+margin_left = 154.562
+margin_top = 40.0593
+margin_right = 338.562
+margin_bottom = 117.059
+custom_fonts/font = SubResource( 1 )
+text = "Players 4"
+align = 1
+
+[node name="Number" type="Label" parent="Player3"]
+margin_left = -130.362
+margin_top = 0.756371
+margin_right = 31.6375
+margin_bottom = 37.7564
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+
+[node name="Card" type="TextureRect" parent="Player3"]
+margin_left = -75.6794
+margin_top = 42.6471
+margin_right = 11.3206
+margin_bottom = 129.647
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Player4" type="TextureRect" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 6.95157
+margin_top = 290.028
+margin_right = 146.952
+margin_bottom = 434.028
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Player4"]
+margin_left = -5.17548
+margin_top = -55.3936
+margin_right = 179.825
+margin_bottom = 21.6064
+custom_fonts/font = SubResource( 1 )
+text = "Players 5"
+align = 1
+
+[node name="Number" type="Label" parent="Player4"]
+margin_left = 101.188
+margin_top = -2.26028
+margin_right = 263.188
+margin_bottom = 34.7397
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+
+[node name="Card" type="TextureRect" parent="Player4"]
+margin_left = 155.871
+margin_top = 39.6304
+margin_right = 242.871
+margin_bottom = 126.63
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Player5" type="TextureRect" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = 246.504
+margin_top = 563.123
+margin_right = 386.504
+margin_bottom = 707.123
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Player5"]
+margin_left = -5.17548
+margin_top = -55.3936
+margin_right = 179.825
+margin_bottom = 21.6064
+custom_fonts/font = SubResource( 1 )
+text = "Players 6"
+align = 1
+
+[node name="Number" type="Label" parent="Player5"]
+margin_left = 103.384
+margin_top = -5.54608
+margin_right = 265.384
+margin_bottom = 31.4539
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+
+[node name="Card" type="TextureRect" parent="Player5"]
+margin_left = 158.067
+margin_top = 36.3446
+margin_right = 245.067
+margin_bottom = 123.345
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Hand" type="HBoxContainer" parent="."]
+margin_left = 674.851
+margin_top = 595.918
+margin_right = 1024.86
+margin_bottom = 714.918
+custom_constants/separation = 60
+script = ExtResource( 8 )
+
+[node name="LabInfo" type="Label" parent="."]
+margin_left = 445.202
+margin_top = 222.253
+margin_right = 833.202
+margin_bottom = 280.253
+custom_fonts/font = SubResource( 2 )
+text = "Aguarde !"
+align = 1
+
+[node name="Aposta0" type="Button" parent="."]
+visible = false
+margin_left = 806.325
+margin_top = 262.739
+margin_right = 936.325
+margin_bottom = 332.739
+custom_fonts/font = SubResource( 3 )
+text = "0"
+
+[node name="Aposta1" type="Button" parent="."]
+visible = false
+margin_left = 946.325
+margin_top = 262.739
+margin_right = 1076.33
+margin_bottom = 332.739
+custom_fonts/font = SubResource( 3 )
+text = "1"
+
+[node name="Aposta2" type="Button" parent="."]
+visible = false
+margin_left = 806.325
+margin_top = 342.739
+margin_right = 936.325
+margin_bottom = 412.739
+custom_fonts/font = SubResource( 3 )
+text = "2"
+
+[node name="Aposta3" type="Button" parent="."]
+visible = false
+margin_left = 946.325
+margin_top = 345.027
+margin_right = 1076.33
+margin_bottom = 415.027
+custom_fonts/font = SubResource( 3 )
+text = "3"
+
+[node name="Aposta4" type="Button" parent="."]
+visible = false
+margin_left = 806.325
+margin_top = 422.739
+margin_right = 936.325
+margin_bottom = 492.739
+custom_fonts/font = SubResource( 3 )
+text = "4"
+
+[node name="Recebi" type="Button" parent="."]
+visible = false
+margin_left = 890.0
+margin_top = 340.0
+margin_right = 1020.0
+margin_bottom = 410.0
+custom_fonts/font = SubResource( 3 )
+text = "Recebi"
+
+[connection signal="pressed" from="Aposta0" to="." method="_on_Aposta0_pressed"]
+[connection signal="pressed" from="Aposta1" to="." method="_on_Aposta1_pressed"]
+[connection signal="pressed" from="Aposta2" to="." method="_on_Aposta2_pressed"]
+[connection signal="pressed" from="Aposta3" to="." method="_on_Aposta3_pressed"]
+[connection signal="pressed" from="Aposta4" to="." method="_on_Aposta4_pressed"]
+[connection signal="pressed" from="Recebi" to="." method="_on_Recebi_pressed"]

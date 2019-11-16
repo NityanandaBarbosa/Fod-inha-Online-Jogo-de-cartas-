@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/themas/main.tres" type="Theme" id=1]
+[ext_resource path="res://Script/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/background.png" type="Texture" id=3]
+[ext_resource path="res://Assets/CutiesCaps Free.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 4 )
+
+[node name="MainMenu" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Back" type="TextureRect" parent="."]
+margin_left = -10.0212
+margin_top = 0.93634
+margin_right = 1280.98
+margin_bottom = 723.936
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 485.0
+margin_top = 179.488
+margin_right = 863.0
+margin_bottom = 558.488
+
+[node name="BtnHost" type="Button" parent="Panel"]
+margin_left = 14.0
+margin_top = 113.871
+margin_right = 365.0
+margin_bottom = 233.871
+custom_fonts/font = SubResource( 1 )
+text = "HOSt"
+
+[node name="BtnJoin" type="Button" parent="Panel"]
+margin_left = 14.0
+margin_top = 242.475
+margin_right = 365.0
+margin_bottom = 362.475
+custom_fonts/font = SubResource( 1 )
+text = "Join"
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 8.35089
+margin_top = 11.6913
+margin_right = 367.351
+margin_bottom = 101.691
+custom_fonts/font = SubResource( 2 )
+text = "New Game :"
+align = 1
+valign = 1
+
+[node name="Panel2" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 5.0
+margin_top = 29.0
+margin_right = 336.0
+margin_bottom = 156.0
+
+[node name="BtnOut" type="Button" parent="Panel2"]
+margin_left = 17.8978
+margin_top = 11.9489
+margin_right = 316.898
+margin_bottom = 113.949
+custom_fonts/font = SubResource( 1 )
+text = "Sing out"
+
+[connection signal="pressed" from="Panel/BtnHost" to="." method="_on_BtnHost_pressed"]
+[connection signal="pressed" from="Panel/BtnJoin" to="." method="_on_BtnJoin_pressed"]
+[connection signal="pressed" from="Panel2/BtnOut" to="." method="_on_BtnOut_pressed"]

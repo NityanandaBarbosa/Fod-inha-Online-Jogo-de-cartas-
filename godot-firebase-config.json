@@ -1,0 +1,33 @@
+{
+	"AdMob" : true,
+	"Authentication" : true,
+	"Invites" : false,
+	"RemoteConfig" : false,
+	"Notification" : true,
+	"Storage" : true,
+	"Firestore" : true,
+
+	"AuthConf" : 
+	{
+		"Google" : false,
+		"Twitter" : false,
+		"Facebook" : false,
+		"FacebookAppId" : "",
+        "Anonymous": false,
+        "EmailPassword": true
+	},
+
+	"Ads" : 
+	{
+		"AppId": "",
+		"BannerAd" : false,
+		"BannerGravity" : "BOTTOM",
+		"BannerAdId" : "",
+
+		"InterstitialAd" : false,
+		"InterstitialAdId" : "",
+
+		"RewardedVideoAd" : false,
+		"RewardedVideoAdId" : ""
+	}
+}

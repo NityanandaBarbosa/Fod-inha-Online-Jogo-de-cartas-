@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/themas/main.tres" type="Theme" id=1]
+[ext_resource path="res://Script/JoinGame.gd" type="Script" id=2]
+[ext_resource path="res://Assets/background.png" type="Texture" id=3]
+[ext_resource path="res://Assets/CutiesCaps Free.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 65
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 4 )
+
+[node name="JoinGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="background" type="TextureRect" parent="."]
+margin_left = 5.02936
+margin_top = 5.0
+margin_right = 1288.02
+margin_bottom = 722.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -202.5
+margin_top = -246.0
+margin_right = 202.5
+margin_bottom = 246.0
+
+[node name="EditHost" type="LineEdit" parent="Panel"]
+margin_left = 14.0
+margin_top = 15.0
+margin_right = 309.0
+margin_bottom = 77.0
+custom_fonts/font = SubResource( 1 )
+placeholder_text = "Host :"
+
+[node name="BtnOk" type="Button" parent="Panel"]
+margin_left = 307.0
+margin_top = 15.478
+margin_right = 390.0
+margin_bottom = 78.478
+custom_fonts/font = SubResource( 2 )
+text = "Ok"
+
+[node name="LabNumPlayers" type="Label" parent="Panel"]
+margin_left = 12.4927
+margin_top = 84.5073
+margin_right = 391.493
+margin_bottom = 145.507
+custom_fonts/font = SubResource( 3 )
+text = "Players  (0/6)"
+align = 1
+valign = 1
+
+[node name="LabPlayer0" type="Label" parent="Panel"]
+margin_left = 12.0
+margin_top = 146.801
+margin_right = 391.0
+margin_bottom = 202.801
+custom_fonts/font = SubResource( 3 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="LabPlayer1" type="Label" parent="Panel"]
+margin_left = 12.0
+margin_top = 181.47
+margin_right = 391.0
+margin_bottom = 229.47
+custom_fonts/font = SubResource( 3 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="LabPlayer2" type="Label" parent="Panel"]
+margin_left = 12.4927
+margin_top = 211.124
+margin_right = 391.493
+margin_bottom = 272.124
+custom_fonts/font = SubResource( 3 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="LabPlayer3" type="Label" parent="Panel"]
+margin_left = 12.4927
+margin_top = 248.807
+margin_right = 391.493
+margin_bottom = 309.807
+custom_fonts/font = SubResource( 3 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="LabPlayer4" type="Label" parent="Panel"]
+margin_left = 12.4927
+margin_top = 287.998
+margin_right = 391.493
+margin_bottom = 348.998
+custom_fonts/font = SubResource( 3 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="LabPlayer5" type="Label" parent="Panel"]
+margin_left = 12.4927
+margin_top = 325.682
+margin_right = 391.493
+margin_bottom = 386.682
+custom_fonts/font = SubResource( 3 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="BtnCancel" type="Button" parent="Panel"]
+margin_left = 58.6541
+margin_top = 382.0
+margin_right = 343.654
+margin_bottom = 445.0
+custom_fonts/font = SubResource( 2 )
+text = "Cancelar"
+
+[connection signal="pressed" from="Panel/BtnOk" to="." method="_on_BtnOk_pressed"]
+[connection signal="pressed" from="Panel/BtnCancel" to="." method="_on_BtnCancel_pressed"]

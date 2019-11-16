@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Script/Card.gd" type="Script" id=1]
+[ext_resource path="res://Assets/back copiar.png" type="Texture" id=2]
+
+[node name="Card" type="Control"]
+margin_left = -6.0
+margin_right = 40.0
+margin_bottom = 49.0
+script = ExtResource( 1 )
+
+[node name="Texture" type="TextureRect" parent="."]
+margin_left = -44.4148
+margin_top = -88.8297
+margin_right = 74.5852
+margin_bottom = 92.1703
+texture = ExtResource( 2 )
+expand = true
+

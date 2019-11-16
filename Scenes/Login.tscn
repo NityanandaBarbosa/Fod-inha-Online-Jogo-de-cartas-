@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/themas/main.tres" type="Theme" id=1]
+[ext_resource path="res://Script/Login.gd" type="Script" id=2]
+[ext_resource path="res://Assets/background.png" type="Texture" id=3]
+[ext_resource path="res://Assets/fdinha bk.png" type="Texture" id=4]
+[ext_resource path="res://Assets/CutiesCaps Free.otf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 65
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 110
+font_data = ExtResource( 5 )
+
+[node name="Login" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Back" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.752621
+margin_top = -2.47192
+margin_right = -0.752686
+margin_bottom = -2.47192
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Back2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 169.0
+margin_top = -102.0
+margin_right = -176.0
+margin_bottom = -296.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -168.0
+margin_top = -90.0
+margin_right = 223.0
+margin_bottom = 209.0
+
+[node name="LabInfo" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -191.351
+margin_top = 14.1494
+margin_right = 184.649
+margin_bottom = 71.1494
+custom_fonts/font = SubResource( 1 )
+text = "Faça o login :"
+align = 1
+valign = 1
+
+[node name="Username" type="LineEdit" parent="Panel"]
+margin_left = 17.2988
+margin_top = 93.0
+margin_right = 343.299
+margin_bottom = 155.0
+custom_fonts/font = SubResource( 2 )
+placeholder_text = "Username :"
+
+[node name="BtnSingin" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -109.5
+margin_top = 31.4427
+margin_right = 115.5
+margin_bottom = 86.4427
+custom_fonts/font = SubResource( 3 )
+text = "Entrar"
+
+[node name="BtnSingup" type="Button" parent="Panel"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -109.5
+margin_top = 77.9801
+margin_right = 115.5
+margin_bottom = 132.98
+custom_fonts/font = SubResource( 3 )
+text = "Cadastrar"
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_left = 394.35
+margin_top = 25.8667
+margin_right = 898.35
+margin_bottom = 264.867
+custom_fonts/font = SubResource( 4 )
+text = "Fod#nh# Online"
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="pressed" from="Panel/BtnSingin" to="." method="_on_BtnSingin_pressed"]
+[connection signal="pressed" from="Panel/BtnSingup" to="." method="_on_BtnSingup_pressed"]
