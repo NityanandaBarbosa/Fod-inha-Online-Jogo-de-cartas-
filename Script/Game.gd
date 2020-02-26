@@ -25,7 +25,7 @@ func _ready():
 		room_data["game"]["nplayers"] = 99
 		room_data["game"]["state"] = "init"
 		room_data["game"]["deck"] = card_manager.array_to_dic(card_manager.gen_deck())
-		room_data["game"]["stack"] = {}
+		#room_data["game"]["stack"] = {}
 		room_data["game"]["apostas"] = {}
 		room_data["game"]["acertosApostas"] = {}
 		room_data["game"]["cartasHand"] = {}
@@ -40,15 +40,15 @@ func _on_snapshot_data(data):
 	
 	room_data = data
 	
-	if room_data["game"]["state"] == "over":
-		room_data["game"]["winner"] = room_data["players"][str(0)]
-		GameState.set_document("rooms", GameState.room_name, room_data)
-		GameState.remove_listener("rooms", GameState.room_name)
-		GameState.room_data = data
-		get_tree().change_scene("res://Scenes/WinScreen.tscn")
-		return
+	#if room_data["game"]["state"] == "over":
+	#	room_data["game"]["winner"] = room_data["players"][str(0)]
+	#	GameState.set_document("rooms", GameState.room_name, room_data)
+	#	GameState.remove_listener("rooms", GameState.room_name)
+	#	GameState.room_data = data
+	#	get_tree().change_scene("res://Scenes/WinScreen.tscn")
+	#	return
 	
-	elif room_data["game"]["state"] == "game":
+	if room_data["game"]["state"] == "game":
 		$Stack.set_top(card_manager.to_card_data(room_data["game"]["top_card"]))
 		$Manilha.set_manilha(card_manager.to_card_data(room_data["game"]["manilha"]))
 		show_ncards()
@@ -64,6 +64,7 @@ func _on_snapshot_data(data):
 					room_data["game"]["recebeuCards"][str(me_n)] = 0
 					if room_data["game"]["apostas"][str(i)] != room_data["game"]["acertosApostas"][str(i)]:
 						room_data["game"]["cartasHand"][str(i)] += -1
+						GameState.set_document("rooms", GameState.room_name, room_data)
 			room_data["game"]["ncards"] = {}
 			room_data["game"]["apostas"] = {}
 			room_data["game"]["acertosApostas"] = {}
@@ -99,8 +100,7 @@ func _on_snapshot_data(data):
 				$Stack.set_top(card_manager.to_card_data(room_data["game"]["top_card"]))
 				$Manilha.set_manilha(card_manager.to_card_data(room_data["game"]["manilha"]))
 			else:
-				var n = 4
-				card_manager.buy_cards($Hand.cards_data, n)
+				card_manager.buy_cards($Hand.cards_data, 4)
 				room_data["game"]["deck"] = null
 				GameState.set_document("rooms", GameState.room_name, room_data)
 				$Hand.reload()
@@ -124,10 +124,9 @@ func _on_snapshot_data(data):
 			$LabInfo.text = "Sua vez de apostar!"
 		
 		elif room_data["game"]["state"] == "game":
-			$Aposta0.hide();$Aposta1.hide(); $Aposta2.hide(); $Aposta3.hide();$Aposta4.hide()
 			$LabInfo.text = "Sua vez!"
 			if room_data["game"]["roundCounter"] == room_data["game"]["nplayers"]:
-				room_data["game"]["turn"]= room_data["game"]["roundWinner"]
+				room_data["game"]["turn"] = room_data["game"]["roundWinner"]
 				room_data["game"]["acertosApostas"][str(room_data["game"]["roundWinner"])] += 1
 				room_data["game"]["roundCounter"] = 0
 				room_data["game"]["top_card"] = null
@@ -141,10 +140,10 @@ func _on_snapshot_data(data):
 				room_data["game"]["state"] = "normal"
 				var manilha = card_manager.get_random_card()
 				room_data["game"]["manilha"] = manilha.to_string()
+				room_data["game"]["deck"] = null
 				room_data["game"]["top_card"] = null
 				GameState.set_document("rooms", GameState.room_name, room_data)
 				room_data["game"]["deck"] = card_manager.array_to_dic(card_manager.deck)
-				GameState.set_document("rooms", GameState.room_name, room_data)
 				GameState.set_document("rooms", GameState.room_name, room_data)
 				$Stack.set_top(card_manager.to_card_data(room_data["game"]["top_card"]))
 				$Manilha.set_manilha(card_manager.to_card_data(room_data["game"]["manilha"]))
@@ -167,8 +166,9 @@ func _on_snapshot_data(data):
 		highlight()
 			
 	else:
-		if room_data["game"]["state"] == "normal":
-				$Aposta0.hide(); $Aposta1.hide(); $Aposta2.hide(); $Aposta3.hide(); $Aposta4.hide()
+		$Aposta0.hide(); $Aposta1.hide(); $Aposta2.hide(); $Aposta3.hide(); $Aposta4.hide()
+		if room_data["game"]["state"] == "normal" or "newTurn":
+			$Manilha.set_manilha(card_manager.to_card_data(room_data["game"]["manilha"]))
 		highlight()
 		$LabInfo.text = "Aguarde sua vez!"
 		
@@ -215,11 +215,26 @@ func go_to_next():
 		var testTop = $Stack.card_data.to_string().split("|")
 		var topPassada = room_data["game"]["top_card"].split("|")
 		print(testTop)
-		if int(testTop[0]) > int(topPassada[0]) or int(testTop[0]) == room_data["game"]["cardNext"]:
-			room_data["game"]["top_card"] = $Stack.card_data.to_string()
-			room_data["game"]["roundWinner"] = me_n
-			room_data["game"]["roundCounter"] +=1
-			
+
+		if int(testTop[0]) == room_data["game"]["cardNext"]:
+			if int(testTop[0]) == int(topPassada[0]) and int(testTop[0][1]) > int(topPassada[0][1]) :
+				room_data["game"]["top_card"] = $Stack.card_data.to_string()
+				room_data["game"]["roundWinner"] = me_n
+				room_data["game"]["roundCounter"] +=1
+			elif int(topPassada[0]) != room_data["game"]["cardNext"]:
+				room_data["game"]["top_card"] = $Stack.card_data.to_string()
+				room_data["game"]["roundWinner"] = me_n
+				room_data["game"]["roundCounter"] +=1
+
+		elif int(testTop[0]) >= int(topPassada[0]):
+			if int(topPassada[0]) != room_data["game"]["cardNext"]:
+				room_data["game"]["top_card"] = $Stack.card_data.to_string()
+				room_data["game"]["roundWinner"] = me_n
+				room_data["game"]["roundCounter"] +=1
+			elif int(testTop[0]) == int(topPassada[0]) and int(testTop[0][1]) > int(topPassada[0][1]):
+				room_data["game"]["top_card"] = $Stack.card_data.to_string()
+				room_data["game"]["roundWinner"] = me_n
+				room_data["game"]["roundCounter"] +=1
 		else:
 			room_data["game"]["roundCounter"] +=1
 	GameState.set_document("rooms", GameState.room_name, room_data)
